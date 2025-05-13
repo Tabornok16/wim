@@ -2,6 +2,7 @@
 
 namespace Wim\LaravelPackage;
 
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
 
@@ -26,7 +27,7 @@ class LaravelPackageServiceProvider extends ServiceProvider
         // Bootstrap package services here
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/laravel-package.php' => \config_path('laravel-package.php'),
+                __DIR__.'/../config/laravel-package.php' => base_path('config/laravel-package.php'),
             ], 'config');
         }
     }
